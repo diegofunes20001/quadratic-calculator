@@ -1,61 +1,66 @@
-import UseCalculator  from '../hooks/UseCalculator'
+// Este componente es un formulario que recibe los valores de a, b y c de la fórmula cuadrática y muestra el resultado de la fórmula cuadrática.
+// El componente debe tener un estado local para los valores de a, b y c, el resultado de la fórmula y un mensaje de error.
+import UseCalculator  from "../hooks/UseCalculator"
 
 const Calculator  = () => {
     const {
-        NumeroA,
-        setNumeroA,
-        NumeroB,
-        setNumeroB,
-        NumeroC,
-        setNumeroC,
-        resultado,
-        Sumar,
-        Limpiar
-    } = useCalculator ()
+        a,
+        setA,
+        b,
+        setB,
+        c,
+        setC,
+        result,
+        error,
+        calculateRoots
+    } = UseCalculator ()
 
     return (
-        <div className="container mt-5">
-            <div className="row justify-content-center">
-                <div className="col-6 mb-3">
-                    <label className="form-label">Ingrese primer número A :</label>
-                    <input type="number" className="form-control" value={NumeroA} onChange={(e) => setNumeroA(e.target.value)} />
-                </div>
+        <div className="container-form  mt-5">
+          <h1>Calculadora de Fórmula Cuadrática</h1>
+          <form onSubmit={calculateRoots}>
+            <div className="col-6 mt-3">
+              <label>
+                a:
+                <input
+                  type="number"
+                  value={a}
+                  onChange={(e) => setA(e.target.value)}
+                  required
+                />
+              </label>
             </div>
-
-            <div className="row justify-content-center">
-                <div className="col-6 mb-3">
-                    <label className="form-label">Ingrese segundo número B :</label>
-                    <input type="number" className="form-control" value={NumeroB} onChange={(e) => setNumeroB(e.target.value)} />
-                </div>
+            <div className="col-6 mt-3">
+              <label>
+                b:
+                <input
+                  type="number"
+                  value={b}
+                  onChange={(e) => setB(e.target.value)}
+                  required
+                />
+              </label>
             </div>
-
-            <div className="row justify-content-center">
-                <div className="col-6 mb-3">
-                    <label className="form-label">Ingrese tercer número C :</label>    
-                    <input type="number" className="form-control" value={NumeroC} onChange={(e) => setNumeroC(e.target.value)} />
-                </div>
+            <div className="col-6 mt-3">
+              <label>
+                c:
+                <input
+                  type="number"
+                  value={c}
+                  onChange={(e) => setC(e.target.value)}
+                  required
+                />
+              </label>
             </div>
-
-            <div className="row justify-content-center">
-                <div className="col-6 mb-3">
-                    <label className="form-label">Resultado:</label>
-                    <input type="number" className="form-control" value={resultado} readOnly />
-                </div>
-            </div>
-
-            <div className="row justify-content-center">
-                <div className="col-3 mb-3">
-                    <button className="btn btn-success" onClick={Sumar} >Sumar</button>
-                </div>
-                <div className="col-3 mb-3">
-                    <button className="btn btn-danger" onClick={Limpiar} >Limpiar</button>
-                </div>
-            </div>
+            <button type="submit">Calcular</button>
+          </form>
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          {result && <p>{result}</p>}
         </div>
-    )
+      );
 }
 
-export default UseCalculator 
+export default Calculator 
 
 
  
