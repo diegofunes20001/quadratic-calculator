@@ -16,11 +16,11 @@ const Calculator  = () => {
     } = UseCalculator ()
 
     return (
-        <div className="container-form  mt-5">
+        <div className="container- mt-5">
           <h1>Calculadora de Fórmula Cuadrática</h1>
           <form onSubmit={calculateRoots}>
             <div className="col-6 mt-3">
-              <label>
+              <label className="col-6">
                 a:
                 <input
                   type="number"
@@ -31,7 +31,7 @@ const Calculator  = () => {
               </label>
             </div>
             <div className="col-6 mt-3">
-              <label>
+              <label className="col-6 mt-3">
                 b:
                 <input
                   type="number"
@@ -42,7 +42,7 @@ const Calculator  = () => {
               </label>
             </div>
             <div className="col-6 mt-3">
-              <label>
+              <label className="col-6 mt-3">
                 c:
                 <input
                   type="number"
@@ -52,7 +52,7 @@ const Calculator  = () => {
                 />
               </label>
             </div>
-            <button type="submit">Calcular</button>
+            <button type="button" className="btn btn-success">Calcular</button>
           </form>
           {error && <p style={{ color: 'red' }}>{error}</p>}
           {result && <p>{result}</p>}
