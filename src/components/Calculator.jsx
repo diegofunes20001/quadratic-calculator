@@ -12,16 +12,19 @@ const Calculator  = () => {
         setC,
         result,
         error,
-        calculateRoots
+        calculateRoots,
+        Limpiar
     } = UseCalculator ()
 
     return (
-        <div className="container- mt-5">
+        <div className="container mt-5">
+          <div className="row justify-content-center text-center">
+            <div className="col-6 mb-3">
           <h1>Calculadora de Fórmula Cuadrática</h1>
           <form onSubmit={calculateRoots}>
-            <div className="col-6 mt-3">
-              <label className="col-6">
-                a:
+            <div className=" row justify-content-center mb-3">
+              <label className="col-6 mb-3">
+              ingresa de Numero A:
                 <input
                   type="number"
                   value={a}
@@ -30,9 +33,9 @@ const Calculator  = () => {
                 />
               </label>
             </div>
-            <div className="col-6 mt-3">
-              <label className="col-6 mt-3">
-                b:
+            <div className=" row justify-content-center mb-3">
+              <label className="col-6 mb-3">
+              ingresa de Numero B:
                 <input
                   type="number"
                   value={b}
@@ -41,9 +44,9 @@ const Calculator  = () => {
                 />
               </label>
             </div>
-            <div className="col-6 mt-3">
-              <label className="col-6 mt-3">
-                c:
+            <div className="row justify-content-center mb-3">
+              <label className="col-6 mb-3">
+              ingresa de Numero C:
                 <input
                   type="number"
                   value={c}
@@ -52,10 +55,25 @@ const Calculator  = () => {
                 />
               </label>
             </div>
-            <button type="button" className="btn btn-success">Calcular</button>
+            <div className="row justify-content-center">
+              <div className="col-3 mb-3">
+                <button type="submit" className="btn btn-success" onClick={calculateRoots}>
+                  Calcular
+                </button>
+              </div>
+              <div className="col-3 mb-3">
+                <button type="submit" className="btn btn-danger" onClick={Limpiar}>
+                  Limpiar
+                </button>
+              </div>
+            </div>
           </form>
+          <label className="col-6 mt-3">Resultado:
           {error && <p style={{ color: 'red' }}>{error}</p>}
           {result && <p>{result}</p>}
+          </label>
+          </div>
+        </div>
         </div>
       );
 }

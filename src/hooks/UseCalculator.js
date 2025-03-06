@@ -40,7 +40,26 @@ const UseCalculator = () => {
         }
     };
 
-    return { a, setA, b, setB, c, setC, result, error, calculateRoots };
+    const Limpiar = () => {
+        setA('');
+        setB('');
+        setC('');
+        setResult(null);
+        setError('');
+    };
+
+    return { 
+      a,
+      setA,
+      b, 
+      setB, 
+      c, 
+      setC, 
+      result, 
+      error, 
+      calculateRoots,
+      Limpiar
+    };
 }
 
 export default UseCalculator
