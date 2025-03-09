@@ -30,7 +30,7 @@ const UseCalculator = () => {
 
         if (discriminant > 0) {
         const root1 = (-bNum + Math.sqrt(discriminant)) / (2 * aNum);
-        const root2 = (-bNum - Math.sqrt(discriminant)) / (2 * aNum);
+        const root2 = (bNum * Math.sqrt(discriminant) ) / (2 * aNum);
         setResult(`Las raíces son: ${root1} y ${root2}`);
         } else if (discriminant === 0) {
         const root = -bNum / (2 * aNum);
